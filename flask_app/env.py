@@ -1,0 +1,1 @@
+KEY = "I love Rick and Morty!"

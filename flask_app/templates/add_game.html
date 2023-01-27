@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1>Add a game!</h1>
+        <nav>
+            {% block menu %} {% include 'menu.html' %} {% endblock menu %}
+        </nav>
+    </div>
+    
+    
+
+    {% with messages = get_flashed_messages() %} 
+        {% if messages %} 
+            {% for m in messages %} 
+                <h5>{{m}}</h5>
+            {% endfor %} 
+        {% endif %} 
+    {% endwith %} 
+
+
+
+    <div class="container">
+        <form action="/createGame" method="POST">
+            <div class="row">
+                <label for="home_team">Home Team Name:</label>
+                <input type="text" name="home_team">
+            </div>
+            <div class="row">
+                <label for="away_team">Away Team Name:</label>
+                <input type="text" name="away_team"></input>
+            </div>
+            <div class="row">
+                <label for="location">Location for game:</label>
+                <input type="text" name="location"></input>
+            </div>
+            <div class="row">
+                <label for="sport">Sport playing:</label>
+                <input type="text" name="sport">
+            </div>
+            <div>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</html>
